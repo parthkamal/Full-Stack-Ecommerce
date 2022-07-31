@@ -1,16 +1,10 @@
 const express = require('express')
 const router=express.Router()
 
-router.post('/signin',(req,res,next)=>{
-    res.status(200).json({
-        message:"hello from the post sigin route"
-    })
-})
+//importing controllers for the router
+const {signin,signup}=require('../controllers/user')
 
-router.post('/signup',(req,res,next)=>{
-    res.status(200).json({
-        message:"hello from the post signup route"
-    })
-})
+router.post('/signin',signin)
+router.post('/signup',signup)
 
 module.exports=router

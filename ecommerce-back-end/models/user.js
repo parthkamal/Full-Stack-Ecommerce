@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const bcrypt=require('bcrypt')
+const bcrypt = require('bcrypt')
+require('dotenv').config();
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -49,16 +50,16 @@ const userSchema = new mongoose.Schema({
 
 
 //virtuals for creating a virtual entry of 'password' and then storing it inside the hash_password entry
-userSchema.virtual('password').set((password)=>{
+userSchema.virtual('password').set(function(password){
     // this will exactly store the password taken from the user which is not safe so we will user bcrypt moduel and then hash it to store in the this.hash_password entry
-    this.hash_password=bcrypt.hashSync(password,process.env.PASSWORD_SALT_ROUNDS)
+    this.hash_password = bcrypt.hashSync(password, 10)
 })
 
 
 //mongoose methods
-userSchema.methods={
-    authenticate:function(password){
-        return bcrypt.compare(password,this.hash_password);
+userSchema.methods = {
+    authenticate: function (password) {
+        return bcrypt.compare(password, this.hash_password);
     }
 }
 
