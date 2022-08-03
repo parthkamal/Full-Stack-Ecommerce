@@ -21,7 +21,7 @@ export const SigninForm = (props) => {
       <form onSubmit={handleSubmit} className="form-main" >
           <input type="text" value={email} onChange={e=> setEmail(e.target.value)} placeholder="admin-email"  /> 
           <input type="password" value={password} onChange={e=>setPassword(e.target.value)} placeholder="admin-password"/>
-        <input type="submit" value="Signin" />
+          <input type="submit" value="Signin" />
       </form>
     </div>
   )
