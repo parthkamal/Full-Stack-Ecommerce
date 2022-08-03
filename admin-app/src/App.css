@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.header-container >*{
+  font-size: 30px;
+  text-transform: capitalize;
+  padding: 5px;
+}
+
+.text-link {
+  text-decoration: none;
+  color: white;
+}
+
+.footer{
+  text-align: center;
+  font-size: 28px;
+}
+
+.form-main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+.form-main input{
+  font-size: 20px;
+  padding: 10px;
+  width: 40%;
+  margin: 10px;
+}
