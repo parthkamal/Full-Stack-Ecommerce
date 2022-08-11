@@ -7,11 +7,12 @@ const app = express()
 
 //routes
 const userRoutes=require('../routes/user')
-
+const categoryRoutes=require('../routes/category')
 
 //middlewares
-app.use(express.json());
+app.use(express.json())
 app.use('/api',userRoutes)
+app.use('/api',categoryRoutes)
 
 //environment variables
 const env=require('dotenv')
