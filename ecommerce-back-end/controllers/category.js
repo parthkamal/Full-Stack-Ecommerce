@@ -26,19 +26,19 @@ exports.createCatergoryController = (req, res) => {
     })
 }
 
-function createCategories(categories,parentId=null){
+function createCategories(categories, parentId = null) {
     //middleware to all the categories in the hirarchical form
-    const categoryList=[];
+    const categoryList = [];
     let category;
-    if(parentId==null)category=categories.filter(cat=>cat.parentId ===null );
-    else category=categories.filter(cat=>cat.parentId==parentId);
+    if (parentId == null) category = categories.filter(cat => cat.parentId === null);
+    else category = categories.filter(cat => cat.parentId == parentId);
 
-    for(let cat of category){
+    for (let cat of category) {
         categoryList.push({
-            _id:cat._id,
+            _id: cat._id,
             name: cat.name,
-            slug:cat.slug,
-            children:createCategories(categories,cat._id)
+            slug: cat.slug,
+            children: createCategories(categories, cat._id)
         });
     }
     console.log(categoryList)
@@ -50,15 +50,15 @@ exports.getCategoryController = (req, res) => {
     //extracting all the categories from the database and returning to the user
     Category.find((error, categories) => {
         if (error) return res.status(400).json(error);
-        if(categories)return res.status(200).json({categories:createCategories(categories)})
+        if (categories) return res.status(200).json({ categories: createCategories(categories) })
     })
 }
 
 //delete category controller
-exports.deleteCategoryController=(req,res)=>{
-    Category.deleteMany((error,deletedResult)=>{
-        if(error)return res.status(400).json(error)
-        return res.status(200).json({message:"deleted category successfully"})
+exports.deleteCategoryController = (req, res) => {
+    Category.deleteMany((error, deletedResult) => {
+        if (error) return res.status(400).json(error)
+        return res.status(200).json({ message: "deleted category successfully" })
     })
 }
 
