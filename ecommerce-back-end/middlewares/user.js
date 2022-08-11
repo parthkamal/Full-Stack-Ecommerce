@@ -13,3 +13,9 @@ exports.requresSignIn=(req,res,next)=>{
         }
     })
 }
+
+exports.checkAdminRoleMiddleware=(req,res,next)=>{
+    const {user}=req;
+    if(user.role !== 'admin')return res.status(400).json({message:"you are user, you are not allowed to create category",user})
+    next();
+}
