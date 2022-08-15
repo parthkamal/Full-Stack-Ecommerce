@@ -9,14 +9,15 @@ const productSchema = new mongoose.Schema({
     price: { type: Number, required: true },
     quantity: { type: Number, required: true },
     description: { type: String, required: true, trim: true },
-    offer: Number,
+    offer: {type:String},
     pictures: [{ img: { type: String } }],
     reviews: [
         {
-            userId: mongoose.Schema.Types.ObjectId, ref: 'User',
-            review: String
+            userId: {type:mongoose.Schema.Types.ObjectId,ref:'User'},
+            review: {type:String}
         }
     ],
+    category:{type:mongoose.Schema.Types.ObjectId,ref:'Category'},
     createdBy:{
         type: mongoose.Schema.Types.ObjectId, ref: 'User',
     },
