@@ -2,7 +2,7 @@ const express = require('express')
 const { createProductController, getProductController, deleteProductController } = require('../controllers/product')
 const router = express.Router()
 const path = require('path')
-
+    
 //for uploading files with multiform-data
 const multer = require('multer')
 //destination of the stored files in server
