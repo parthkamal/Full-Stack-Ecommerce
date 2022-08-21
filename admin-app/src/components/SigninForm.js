@@ -1,5 +1,8 @@
 import React, { useTransition } from 'react'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { login } from '../actions/auth.action';
+
 
 /**
 * @author
@@ -10,10 +13,15 @@ export const SigninForm = (props) => {
 
   const [email,setEmail]=useState();
   const [password,setPassword]=useState();
+  const dispatch=useDispatch();
   
   const handleSubmit=(e)=>{
     e.preventDefault();
-    alert(`logging in....${email}`);
+    //creating the user
+    const user ={email,password}
+    console.log("submit event is fired")
+    //dispatching the actions of login request
+    dispatch(login(user));
   }
 
   return (
