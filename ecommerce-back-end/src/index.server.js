@@ -1,6 +1,7 @@
 // declaring the express module
 const express =require('express')
 const mongoose =require('mongoose')
+const cors = require('cors')
 
 // initialising the server(app) now this app willse use handlers,middlewares and routes
 const app = express()
@@ -12,6 +13,7 @@ const productRoutes=require('../routes/product')
 const cartRoutes=require('../routes/cart')
 
 //middlewares
+app.use(cors())
 app.use(express.json())
 app.use('/api',userRoutes)
 app.use('/api',categoryRoutes)

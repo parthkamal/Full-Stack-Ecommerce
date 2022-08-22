@@ -74,4 +74,6 @@ Redux Thunk is middleware that allows you to return functions, rather than just 
 defined the store in the src/index.js
 in redux, reducers are the pure functions (State,action) => newState
 redux thunk is for dispatching asynchronous functions
-
+helpers directory is to distribute the work in multiple files
+axios is used to communicate with the backend and it also supports the Promise API that is native to JS ES6
+It is a library which is used to make requests to and Api, return date from the api, and then do things with that data in our react application
