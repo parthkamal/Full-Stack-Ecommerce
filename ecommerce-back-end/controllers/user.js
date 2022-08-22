@@ -3,6 +3,7 @@ const jwt=require('jsonwebtoken')
 const { generateFromEmail, generateUsername } = require("unique-username-generator");
 
 exports.signin=(req,res,next)=>{
+    console.log("controller tk data phucha tha")
     //destructuring the request object
     const {email,password}=req.body;
     User.findOne({email:email}).exec((error,user)=>{
